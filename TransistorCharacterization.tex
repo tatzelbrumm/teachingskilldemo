@@ -105,26 +105,6 @@ the intrinsic voltage gain $g_m/g_o$ can be extracted by sweeping $V_{d,ref}$ fo
 = \frac{g_m}{g_o} \,.
 \end{equation}
 
-\subsection{Noise}
-%
-Due to the feedback in the schematic in Figure~\ref{fig:schematics},  
-the input referred noise of the transistor can be observed directly at the regulated gate. 
-When a term for input referred noise is added to Equation~\ref{eqn:KCL}, 
-\begin{IEEEeqnarray}{c}
-I_d = g_m (V_g+v_n) + g_o V_d \label{eqn:noisyKCL}\\
-V_g = V_d + A \le(V_d - V_{d,ref}\ri) \nonumber
-\end{IEEEeqnarray}
-the effect of the noise voltage $v_n$ on the gate voltage $V_g$ is 
-\begin{equation}\label{eqn:noiseVg}
-\frac{\partial V_g}{\partial v_n} = -\frac{1}{1+\frac{g_o}{\le(1+A\ri)g_m}}
-\end{equation}
-and 
-\begin{equation}\label{eqn:gatenoise}
-v_n = -\le(1+\frac{g_o}{\le(1+A\ri)g_m}\ri)V_g 
-\overset{A\rightarrow\infty\atop g_o\ll g_m}\approx -V_g \,.
-\end{equation}
-The input referred noise of the transistor can be read 
-by setting the output node of the noise to $V_g$.
 \end{document}
 
 
