@@ -18,8 +18,7 @@ Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) license
 \maketitle
 \begin{abstract}\boldmath
 I present a simple simulation schematic to extract transistor parameters relevant for analog circuit design:
-transconductance~$g_m$, transconductance per current~$g_m/I_d$, voltage gain~$g_m/g_o$, 
-and input referred noise~$v_n$.
+transconductance~$g_m$, transconductance per current~$g_m/I_d$, and voltage gain~$g_m/g_o$.
 \end{abstract}
 
 
@@ -43,9 +42,9 @@ which controls transconductance,
 and the drain-to-source voltage~$V_{ds}$, which controls output conductance~$g_o$.
 However, the operating point of the transistor is controlled mostly by the gate-to-source voltage~$V_{gs}$.
 
-I solve this by regulating the gate voltage by a feedback loop that adjusts $V_g$ 
-to set the drain voltage $V_d$ to a reference $V_{d,ref}$ 
-by an ideal voltage controlled voltage source (VCVS). 
+I solve this by regulating the gate voltage by a feedback loop
+that adjusts $V_g$ to set the drain voltage $V_d$ to a reference $V_{d,ref}$ 
+by an ideal voltage controlled voltage source (VCVS) with voltage gain~$A$. 
 The schematics for the NMOS and PMOS simulation circuits are shown in Figure~\ref{fig:schematics}. 
 
 Kirchhoff's Current Law yields the small-signal equations
