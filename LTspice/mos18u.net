@@ -1,0 +1,23 @@
+* Z:\home\cmaier\LTC\LTspiceIV\schematics\UiO_demo\mos18u.asc
+Mn dn gn 0 bn CMOSN w={Wn} l={Ln}
+Vdn dnref 0 {Vd}
+Egn gn dn dn dnref 1000k
+Idn 0 gn {Ibias}
+Vbn bn 0 {Vb}
+Egp gp dp dp dpref 1000k
+Mp dp gp 0 bp CMOSP w={Wp} l={Lp}
+Edp dpref 0 dnref 0 -1
+Ebp bp 0 bn 0 -1
+Bdp 0 gp I=-I(Idn)
+.param Ibias=1u
+.param Vd=0.6
+.dc dec Idn 4p 40u 40
+.param Vb=0
+.param Wn=0.36u
+.param Ln={L}
+.param Wp=0.36u
+.param Lp={L}
+.include TSMC18u_T77A.mod
+.step param L list 0.18u 0.36u 0.72u
+.backanno
+.end

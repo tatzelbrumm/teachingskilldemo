@@ -1,0 +1,23 @@
+* Z:\home\cmaier\LTC\LTspiceIV\schematics\UiO_demo\gm_over_go.mos18u.asc
+Mn dn gn 0 bn CMOSN w={Wn} l={Ln}
+Vdn dnref 0 {Vd}
+Egn gn dn dn dnref 1000k
+Idn 0 gn {Ibias}
+Vbn bn 0 {Vb}
+Egp gp dp dp dpref 1000k
+Mp dp gp 0 bp CMOSP w={Wp} l={Lp}
+Edp dpref 0 dnref 0 -1
+Ebp bp 0 bn 0 -1
+Bdp 0 gp I=-I(Idn)
+.param Ibias=1u
+.param Vd=1
+.dc Vdn 40m 2 1m
+.param Vb=0
+.param Wn=1.44u
+.param Ln={L}
+.param Wp=1.44u
+.param Lp={L}
+.step param L list 0.18u 0.36u 0.72u
+.include TSMC18u_T77A.mod
+.backanno
+.end
