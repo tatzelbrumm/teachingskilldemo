@@ -12,7 +12,7 @@
 \begin{document}
 \title{A Simulation Circuit to Characterize Transistors}
 \author{Christoph Maier~\IEEEmembership{Member,~IEEE}% <-this % stops a space
-\thanks{Copyright (c) 2014 under Creative Commons
+\thanks{Copyright \copyright\ 2008, 2014, 2019 under Creative Commons
 Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) license.}}%
 %~\ref{http://creativecommons.org/licenses/by-nc-sa/4.0/}}% <-this % stops a space
 \maketitle
@@ -22,9 +22,9 @@ transconductance~$g_m$, transconductance per current~$g_m/I_d$, and voltage gain
 \end{abstract}
 
 
-%\begin{IEEEkeywords}
-%\ldots
-%\end{IEEEkeywords}
+\begin{IEEEkeywords}
+SPICE, LT spice, MOSFET, process characterization, $g_m/I_d$ design method
+\end{IEEEkeywords}
 
 \IEEEpeerreviewmaketitle
 %%
@@ -104,6 +104,139 @@ the intrinsic voltage gain $g_m/g_o$ can be extracted by sweeping $V_{d,ref}$ fo
 = \frac{g_m}{g_o} \,.
 \end{equation}
 
+\section{Parameter sweeps}
+%%
+\subsection{Transconductance}
+%
+Even when MOS transistor models are too complicated for hand calculations,
+the specific transconductance $g_m/I_d$ indicates the operating region of the transistor.
+ 
+In the weak inversion region, $I_d$ is an exponential function of $V_g$,
+\begin{equation}
+I_d = I_{d{0}} \exp\le(\frac{q}{n\;k\,T}\le(V_g-V_t\ri)\ri)
+\end{equation}
+with $V_t$~the threshold voltage, $q$~the electron charge, $k$~the Boltzmann constant, 
+$T$~the absolute temperature, $n>1$~a process dependent factor, 
+and $I_{d{0}}$~a proportionality constant depending on geometry,
+so
+\begin{equation}
+\frac{g_m}{I_d}
+= \frac{\frac{\partial I_d}{\partial V_g}}{I_d} 
+= \frac{\frac{q}{n\;k\,T} I_{d{0}} \exp\le(\frac{q}{n\;k\,T}\le(V_g-V_t\ri)\ri)}
+       {I_{d{0}} \exp\le(\frac{q}{n\;k\,T}\le(V_g-V_t\ri)\ri)}
+= \frac{q}{n\;k\,T}\,.
+\end{equation}
+
+In the strong inversion region, $I_d$~depends quadratically on~$V_g$,
+\begin{equation}
+I_d = \frac{\kappa}{2}\le(V_g-V_t\ri)^2
+\end{equation}
+with the threshold voltage~$V_t$ and a geometry and process dependent factor~$\kappa$,
+so 
+\begin{equation}
+\frac{g_m}{I_d}
+= \frac{\kappa\le(V_g-V_t\ri)}{\frac{\kappa}{2}\le(V_g-V_t\ri)^2}
+= \frac{2}{V_g-V_t}
+\end{equation}
+where $V_g-V_t > 2\,\frac{n\;k\,T}{q}$ for the transistor to be above weak inversion.
+
+With a logarithmic dc sweep of~$I_d$ at a given~$V_d$, the transition between weak and strong inversion can be seen by $g_m/I_d$ falling from its essentially constant value for weak inversion at the onset of strong inversion. 
+$g_m$ is obtained by taking the derivative with respect to the dc sweep variable $I_d$ 
+of both $V_g$ and~$I_d$.
+This is shown in LT\,Spice\,IV for two different processes 
+(TSMC~250\,nm and TSMC~180\,nm) in Figures \ref{fig:gm_mos25} and~\ref{fig:gm_mos18}. 
+
+%
+\begin{figure}[h]
+\centering
+\includegraphics[width=1.0\columnwidth]{figures/mos25u.pdf}
+\caption{Transconductance characterization for 250\,nm process}
+\label{fig:gm_mos25}
+\end{figure}
+%
+\begin{figure}[h]
+\centering
+\includegraphics[width=1.0\columnwidth]{figures/mos18u.pdf}
+\caption{Transconductance characterization for 180\,nm process}
+\label{fig:gm_mos18}
+\end{figure}
+%
+
+For smaller $W/L$ ratios, $g_m/I_d$ starts dropping at lower $I_d$, 
+and for the same $W/L$ ratio, the $g_m/I_d$ of PMOS transistors starts dropping at lower $I_d$ than NMOS due to the lower mobility of holes vs.\ electrons.
+
+For low-power, low noise circuits, 
+the signal amplifying transistors should be dimensioned and biased in weak inversion
+near the onset of moderate inversion. 
+
+\subsection{Voltage gain}
+%
+\begin{figure}[h]
+\centering
+\includegraphics[width=1.0\columnwidth]{figures/gm_over_go_mos25u.pdf}
+\caption{Voltage gain characterization for 250\,nm process}
+\label{fig:gm_go_mos25}
+\end{figure}
+%
+\begin{figure}[h]
+\centering
+\includegraphics[width=1.0\columnwidth]{figures/gm_over_go_mos18u.pdf}
+\caption{Voltage gain characterization for 180\,nm process}
+\label{fig:gm_go_mos18}
+\end{figure}
+%
+
+For the dc voltage gain of a transistor stage, 
+the transconductance to output conductance ratio $g_m/g_o$ is the key figure of merit.
+$g_o$ depends on transistor length and drain-to-source voltage $V_{d{s}}$ 
+in a way too complicated for hand calculations. 
+
+A linear sweep of~$V_d$ at constant~$I_d$ allows to optimize transistor length 
+and minimum required~$V_{d{s}}$ to achieve the best possible voltage gain
+within design constraints for the process. 
+$g_m$ and $g_o$ are obtained by taking the derivatives of $V_g$ and $V_d$ with respect to the dc sweep variable $V_d$, and calculating the ratio
+\begin{equation}
+\frac{g_m}{g_o} = -\frac{\mathrm{d}\le(V_d\ri)}{\mathrm{d}\le(V_g\ri)}
+\end{equation}
+due to the implicit relation for constant $I_d$
+\begin{equation}
+g_o\,\mathrm{d}\le(V_d\ri) + g_m\,\mathrm{d}\le(V_g\ri) = 0\,.
+\end{equation}
+
+Figures \ref{fig:gm_go_mos25} and~\ref{fig:gm_go_mos18}
+show LT\,Spice\,IV linear $V_d$ dc sweeps at different transistor lengths for two different processes 
+(TSMC~250\,nm and TSMC~180\,nm).
+
+Longer transistors have a higher $g_m/g_o$, PMOS can achieve higher $g_m/g_o$ than NMOS,
+and the process with larger minimum feater size has higher maximal $g_m/g_o$.
+
+\section{Conclusion}
+%%
+I present a single transistor simulation circuit, 
+first published in the LT\,Spice Yahoo group in~2008%
+\footnote{https://groups.yahoo.com/neo/groups/LTspice/files/Badenke\%20und\%20Klee/} 
+with feedback control of the gate voltage~$V_g$
+together with a method to dc sweep both 
+$I_d$ for constant~$V_d$ and $V_d$ for constant $I_d$
+and a method to compute 
+\begin{equation}
+g_m = \frac{\mathrm{d}\le(I_d\ri)}{\mathrm{d}\le(V_g\ri)} \quad\mathrm{and}\quad
+\frac{g_m}{I_d} = \frac{\frac{\mathrm{d}\le(I_d\ri)}{\mathrm{d}\le(V_g\ri)}}{I_d}
+\end{equation}
+from the $I_d$ sweep, and
+\begin{equation}
+\frac{g_m}{g_o} = -\frac{\mathrm{d}\le(V_d\ri)}{\mathrm{d}\le(V_g\ri)}
+\end{equation}
+from the $V_d$ sweep. 
+
+This simulation circuit is suitable
+\begin{itemize}
+\item to get a quick overview of the properties of an unfamiliar IC process
+\item to set the dimension and bias points of transistors 
+\item to design circuits using the $g_m/I_d$ methodology.
+\end{itemize}
+
 \end{document}
 
-
+% http://web02.gonzaga.edu/faculty/talarico/EE406/documents/gmid.pdf
+% http://www.mos-ak.org/sanfrancisco/papers/08_Jespers_MOS-AK_SF08.pdf
