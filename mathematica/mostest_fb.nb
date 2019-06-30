@@ -10,16 +10,29 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[     16335,        565]
-NotebookOptionsPosition[     14358,        493]
-NotebookOutlinePosition[     14795,        510]
-CellTagsIndexPosition[     14752,        507]
+NotebookDataLength[     24483,        875]
+NotebookOptionsPosition[     21139,        755]
+NotebookOutlinePosition[     21657,        773]
+CellTagsIndexPosition[     21614,        770]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
 
 Cell[CellGroupData[{
+Cell["Transistor characterization", "Title",
+ CellChangeTimes->{{3.770898613864805*^9, 3.770898631930217*^9}}],
+
+Cell["Worksheet for computations", "Subtitle",
+ CellChangeTimes->{{3.770898663206978*^9, 3.770898667003088*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Some useful functions", "Subsection",
+ CellChangeTimes->{{3.770898655064226*^9, 3.770898658569365*^9}}],
+
+Cell[CellGroupData[{
+
 Cell[BoxData[
  RowBox[{"LSolve", "=", 
   RowBox[{
@@ -94,7 +107,74 @@ Cell[BoxData[
       RowBox[{"Denominator", "[", "expr", "]"}], ",", "s", ",", "func"}], 
      "]"}]]}], "]"}]], "Output",
  CellChangeTimes->{3.606164890289857*^9}]
+}, Open  ]]
 }, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Small signal analysis", "Section",
+ CellChangeTimes->{{3.770898703749276*^9, 3.7708987336196003`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Small signal MOSFET and ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["V", "gate"], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " feedback equations"
+}], "Subsection",
+ CellChangeTimes->{{3.7708987420295753`*^9, 3.7708987790403023`*^9}}],
+
+Cell[TextData[{
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["I", "d"], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ": drain current\n",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["V", "g"], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ": gate voltage\n",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["V", "d"], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ": drain voltage\n",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["g", "m"], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ": transconductance\n",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["g", "o"], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ": small signal output conductance\n",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["V", "dref"], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ": reference drain voltage\n",
+ Cell[BoxData[
+  FormBox["A", TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " : Voltage gain for ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["V", "g"], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ "feedback regulation\n",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["v", "n"], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ": gate referred MOSFET noise voltage"
+}], "Text",
+ CellChangeTimes->{{3.770898815264187*^9, 3.770898948803*^9}, {
+  3.770899183020961*^9, 3.770899197412566*^9}}],
 
 Cell[CellGroupData[{
 
@@ -132,7 +212,24 @@ Cell[BoxData[
       RowBox[{"(", 
        RowBox[{"Vd", "-", "Vdref"}], ")"}]}]}]}]}], "}"}]], "Output",
  CellChangeTimes->{3.606164678372959*^9}]
+}, Open  ]]
 }, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Solve for ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["V", "gate"], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " and ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["V", "drain"], TraditionalForm]],
+  FormatType->"TraditionalForm"]
+}], "Subsection",
+ CellChangeTimes->{{3.770898789814652*^9, 3.770898802437255*^9}}],
 
 Cell[CellGroupData[{
 
@@ -167,6 +264,22 @@ Cell[BoxData[
       RowBox[{"A", " ", "gm"}], "+", "go"}]]}]}], "}"}]], "Output",
  CellChangeTimes->{3.606164923123771*^9}]
 }, Open  ]],
+
+Cell[TextData[{
+ "Substitute gain ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"A", "\[Congruent]", 
+    RowBox[{"1", "/", "\[Alpha]"}]}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " so that infinite gain is ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[Alpha]", "=", "0"}], TraditionalForm]],
+  FormatType->"TraditionalForm"]
+}], "Text",
+ CellChangeTimes->{{3.770898974988388*^9, 3.7708989790077057`*^9}, {
+  3.7708990656971807`*^9, 3.770899129639612*^9}}],
 
 Cell[CellGroupData[{
 
@@ -227,6 +340,33 @@ Cell[BoxData[
 
 Cell[CellGroupData[{
 
+Cell[TextData[Cell[BoxData[
+ FormBox[
+  SubscriptBox["V", "gate"], TraditionalForm]],
+ FormatType->"TraditionalForm"]], "Subsubsection",
+ CellChangeTimes->{{3.7708993243554688`*^9, 3.7708993267643557`*^9}}],
+
+Cell[TextData[{
+ "Split into terms dependent on ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["I", "d"], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ", ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["V", "dref"], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ", and ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["v", "n"], TraditionalForm]],
+  FormatType->"TraditionalForm"]
+}], "Text",
+ CellChangeTimes->{{3.770899347994156*^9, 3.7708993946362886`*^9}}],
+
+Cell[CellGroupData[{
+
 Cell[BoxData[
  RowBox[{"Collect", "[", 
   RowBox[{
@@ -256,6 +396,17 @@ Cell[BoxData[
     RowBox[{"A", " ", "gm"}], "+", "go"}]]}]], "Output",
  CellChangeTimes->{{3.606164961779862*^9, 3.606164985717062*^9}}]
 }, Open  ]],
+
+Cell[TextData[{
+ "Substitute ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"A", "\[Congruent]", 
+    RowBox[{"1", "/", "\[Alpha]"}]}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " and simplify for infinite gain"
+}], "Text",
+ CellChangeTimes->{{3.77089941336448*^9, 3.7708994382879543`*^9}}],
 
 Cell[CellGroupData[{
 
@@ -317,7 +468,33 @@ Cell[BoxData[
  CellChangeTimes->{
   3.606165227527515*^9, 3.606165284162927*^9, {3.606165661998974*^9, 
    3.606165713705159*^9}, 3.606165745134043*^9}]
+}, Open  ]]
+}, Open  ]]
 }, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["I", "d"], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " sweep"
+}], "Subsection",
+ CellChangeTimes->{{3.770899598430616*^9, 3.770899605414001*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[TextData[Cell[BoxData[
+ FormBox[
+  FractionBox[
+   RowBox[{"\[PartialD]", 
+    SubscriptBox["V", "g"]}], 
+   RowBox[{"\[PartialD]", 
+    SubscriptBox["I", "d"]}]], TraditionalForm]],
+ FormatType->"TraditionalForm"]], "Subsubsection",
+ CellChangeTimes->{{3.770899467135529*^9, 3.770899524162134*^9}, {
+  3.7708995698131742`*^9, 3.7708995800813723`*^9}}],
 
 Cell[CellGroupData[{
 
@@ -333,7 +510,33 @@ Cell[BoxData[
   RowBox[{"gm", "+", 
    RowBox[{"A", " ", "gm"}], "+", "go"}]]], "Output",
  CellChangeTimes->{{3.606175065577142*^9, 3.606175073729873*^9}}]
+}, Open  ]]
+}, Open  ]]
 }, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["V", "dref"], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " sweep"
+}], "Subsection",
+ CellChangeTimes->{{3.77089961832415*^9, 3.770899628031621*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[TextData[Cell[BoxData[
+ FormBox[
+  FractionBox[
+   RowBox[{"\[PartialD]", 
+    SubscriptBox["V", "g"]}], 
+   RowBox[{"\[PartialD]", 
+    SubscriptBox["V", "dref"]}]], TraditionalForm]],
+ FormatType->"TraditionalForm"]], "Subsubsection",
+ CellChangeTimes->{{3.770899467135529*^9, 3.770899554857596*^9}, {
+  3.770899647326373*^9, 3.770899647450028*^9}}],
 
 Cell[CellGroupData[{
 
@@ -350,7 +553,20 @@ Cell[BoxData[
    RowBox[{"gm", "+", 
     RowBox[{"A", " ", "gm"}], "+", "go"}]]}]], "Output",
  CellChangeTimes->{3.606176225311428*^9}]
+}, Open  ]]
 }, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[Cell[BoxData[
+ FormBox[
+  FractionBox[
+   RowBox[{"\[PartialD]", 
+    SubscriptBox["V", "d"]}], 
+   RowBox[{"\[PartialD]", 
+    SubscriptBox["V", "dref"]}]], TraditionalForm]],
+ FormatType->"TraditionalForm"]], "Subsubsection",
+ CellChangeTimes->{{3.770899467135529*^9, 3.770899554857596*^9}}],
 
 Cell[CellGroupData[{
 
@@ -366,7 +582,31 @@ Cell[BoxData[
   RowBox[{"gm", "+", 
    RowBox[{"A", " ", "gm"}], "+", "go"}]]], "Output",
  CellChangeTimes->{3.606176238425393*^9}]
+}, Open  ]]
 }, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Implicit differentiation ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"-", 
+     FractionBox[
+      RowBox[{"\[PartialD]", 
+       SubscriptBox["V", "d"]}], 
+      RowBox[{"\[PartialD]", 
+       SubscriptBox["V", "dref"]}]]}], "/", 
+    FractionBox[
+     RowBox[{"\[PartialD]", 
+      SubscriptBox["V", "g"]}], 
+     RowBox[{"\[PartialD]", 
+      SubscriptBox["V", "dref"]}]]}], TraditionalForm]],
+  FormatType->"TraditionalForm"]
+}], "Subsubsection",
+ CellChangeTimes->{{3.770899467135529*^9, 3.770899554857596*^9}, {
+  3.770899849184524*^9, 3.770899873396018*^9}}],
 
 Cell[CellGroupData[{
 
@@ -384,7 +624,25 @@ Cell[BoxData[
 Cell[BoxData[
  FractionBox["gm", "go"]], "Output",
  CellChangeTimes->{3.606176327303299*^9}]
+}, Open  ]]
+}, Open  ]]
 }, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Observed gate voltage noise with feedback", "Subsection",
+ CellChangeTimes->{{3.770900148107686*^9, 3.770900215816514*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[TextData[Cell[BoxData[
+ FormBox[
+  FractionBox[
+   RowBox[{"\[PartialD]", 
+    SubscriptBox["V", "g"]}], 
+   RowBox[{"\[PartialD]", 
+    SubscriptBox["v", "n"]}]], TraditionalForm]]]], "Subsubsection",
+ CellChangeTimes->{{3.770900148107686*^9, 3.7709002132882442`*^9}}],
 
 Cell[CellGroupData[{
 
@@ -490,12 +748,17 @@ Cell[BoxData[
    3.60617757044658*^9}, {3.606177608810479*^9, 3.606177673915424*^9}, 
    3.606177718935623*^9}]
 }, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
 },
 WindowSize->{877, 889},
-WindowMargins->{{Automatic, 10}, {56, Automatic}},
+WindowMargins->{{448, Automatic}, {66, Automatic}},
+PrivateNotebookOptions->{"VersionedStylesheet"->{"Default.nb"[8.] -> True}},
 Magnification:>FEPrivate`If[
   FEPrivate`Equal[FEPrivate`$VersionNumber, 6.], 1.25, 1.25 Inherited],
-FrontEndVersion->"8.0 for Linux x86 (32-bit) (October 10, 2011)",
+FrontEndVersion->"11.0 for Linux x86 (64-bit) (September 21, 2016)",
 StyleDefinitions->"Default.nb"
 ]
 (* End of Notebook Content *)
@@ -510,66 +773,111 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[579, 22, 205, 5, 36, "Input"],
-Cell[787, 29, 153, 4, 36, "Output"]
+Cell[579, 22, 110, 1, 110, "Title"],
+Cell[692, 25, 112, 1, 65, "Subtitle"],
+Cell[CellGroupData[{
+Cell[829, 30, 109, 1, 49, "Subsection"],
+Cell[CellGroupData[{
+Cell[963, 35, 205, 5, 39, "Input"],
+Cell[1171, 42, 153, 4, 37, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[977, 38, 356, 10, 60, "Input"],
-Cell[1336, 50, 163, 4, 36, "Output"],
-Cell[1502, 56, 152, 4, 36, "Output"]
+Cell[1361, 51, 356, 10, 64, "Input"],
+Cell[1720, 63, 163, 4, 37, "Output"],
+Cell[1886, 69, 152, 4, 39, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[1691, 65, 530, 15, 74, "Input"],
-Cell[2224, 82, 458, 13, 56, "Output"]
+Cell[2075, 78, 530, 15, 103, "Input"],
+Cell[2608, 95, 458, 13, 60, "Output"]
+}, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[2719, 100, 605, 17, 106, "Input"],
-Cell[3327, 119, 428, 14, 36, "Output"]
+Cell[3115, 114, 108, 1, 92, "Section"],
+Cell[CellGroupData[{
+Cell[3248, 119, 264, 8, 52, "Subsection"],
+Cell[3515, 129, 1326, 47, 202, "Text"],
+Cell[CellGroupData[{
+Cell[4866, 180, 605, 17, 113, "Input"],
+Cell[5474, 199, 428, 14, 39, "Output"]
+}, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[3792, 138, 314, 8, 36, "Input"],
-Cell[4109, 148, 658, 19, 55, "Output"]
+Cell[5951, 219, 342, 12, 52, "Subsection"],
+Cell[CellGroupData[{
+Cell[6318, 235, 314, 8, 39, "Input"],
+Cell[6635, 245, 658, 19, 59, "Output"]
+}, Open  ]],
+Cell[7308, 267, 461, 14, 36, "Text"],
+Cell[CellGroupData[{
+Cell[7794, 285, 372, 9, 69, "Input"],
+Cell[8169, 296, 994, 28, 59, "Output"],
+Cell[9166, 326, 425, 11, 59, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[4804, 172, 372, 9, 67, "Input"],
-Cell[5179, 183, 994, 28, 55, "Output"],
-Cell[6176, 213, 425, 11, 55, "Output"]
+Cell[9628, 342, 206, 4, 37, "Subsubsection"],
+Cell[9837, 348, 468, 17, 36, "Text"],
+Cell[CellGroupData[{
+Cell[10330, 369, 262, 7, 39, "Input"],
+Cell[10595, 378, 577, 18, 59, "Output"]
+}, Open  ]],
+Cell[11187, 399, 295, 9, 36, "Text"],
+Cell[CellGroupData[{
+Cell[11507, 412, 698, 19, 94, "Input"],
+Cell[12208, 433, 825, 27, 59, "Output"],
+Cell[13036, 462, 274, 7, 59, "Output"]
+}, Open  ]]
+}, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[6638, 229, 262, 7, 36, "Input"],
-Cell[6903, 238, 577, 18, 55, "Output"]
+Cell[13371, 476, 215, 7, 49, "Subsection"],
+Cell[CellGroupData[{
+Cell[13611, 487, 357, 9, 57, "Subsubsection"],
+Cell[CellGroupData[{
+Cell[13993, 500, 172, 4, 39, "Input"],
+Cell[14168, 506, 197, 5, 58, "Output"]
+}, Open  ]]
+}, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[7517, 261, 698, 19, 90, "Input"],
-Cell[8218, 282, 825, 27, 56, "Output"],
-Cell[9046, 311, 274, 7, 55, "Output"]
+Cell[14426, 518, 217, 7, 49, "Subsection"],
+Cell[CellGroupData[{
+Cell[14668, 529, 356, 9, 57, "Subsubsection"],
+Cell[CellGroupData[{
+Cell[15049, 542, 175, 4, 39, "Input"],
+Cell[15227, 548, 195, 6, 58, "Output"]
+}, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[9357, 323, 172, 4, 36, "Input"],
-Cell[9532, 329, 197, 5, 55, "Output"]
+Cell[15471, 560, 307, 8, 55, "Subsubsection"],
+Cell[CellGroupData[{
+Cell[15803, 572, 175, 4, 39, "Input"],
+Cell[15981, 578, 174, 5, 58, "Output"]
+}, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[9766, 339, 175, 4, 36, "Input"],
-Cell[9944, 345, 195, 6, 54, "Output"]
+Cell[16204, 589, 592, 19, 57, "Subsubsection"],
+Cell[CellGroupData[{
+Cell[16821, 612, 306, 9, 67, "Input"],
+Cell[17130, 623, 92, 2, 56, "Output"]
+}, Open  ]]
+}, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[10176, 356, 175, 4, 36, "Input"],
-Cell[10354, 362, 174, 5, 54, "Output"]
-}, Open  ]],
+Cell[17283, 632, 129, 1, 49, "Subsection"],
 Cell[CellGroupData[{
-Cell[10565, 372, 306, 9, 75, "Input"],
-Cell[10874, 383, 92, 2, 52, "Output"]
-}, Open  ]],
+Cell[17437, 637, 274, 7, 56, "Subsubsection"],
 Cell[CellGroupData[{
-Cell[11003, 390, 1558, 47, 125, "Input"],
-Cell[12564, 439, 383, 9, 65, "Output"],
-Cell[12950, 450, 429, 11, 64, "Output"],
-Cell[13382, 463, 419, 10, 62, "Output"],
-Cell[13804, 475, 538, 15, 55, "Output"]
+Cell[17736, 648, 1558, 47, 179, "Input"],
+Cell[19297, 697, 383, 9, 69, "Output"],
+Cell[19683, 708, 429, 11, 69, "Output"],
+Cell[20115, 721, 419, 10, 67, "Output"],
+Cell[20537, 733, 538, 15, 58, "Output"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
 }, Open  ]]
 }
 ]
 *)
-
-(* End of internal cache information *)
 
