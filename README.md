@@ -7,7 +7,7 @@ in an IC process that uses ideal feedback to regulate the gate voltage.
 
 ### Earlier works used in this repository
 
-* LTspice IV schematics published in 2008 in the [LTspice Yahoo group](https://groups.yahoo.com/neo/groups/LTspice/files/Badenke%20und%20Klee/)
+* LTspice IV schematics published in 2008 in the [LTspice Yahoo group](https://groups.yahoo.com/neo/groups/LTspice/files/Badenke%20und%20Klee/) as potential material for an application as IC designer at Linear Technology in [Grass Valley, CA](https://youtu.be/oS8hG8FLUqc)
 * a write-up published in 2014 in [my bitbucket repository](https://bitbucket.org/cmucsd/transistorcharacterization)
 
 ### Organization of the repository
