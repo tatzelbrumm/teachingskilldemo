@@ -23,7 +23,7 @@ transconductance~$g_m$, transconductance per current~$g_m/I_d$, and voltage gain
 
 
 \begin{IEEEkeywords}
-SPICE, LT spice, MOSFET, process characterization, $g_m/I_d$ design method
+SPICE, LTspice, MOSFET, process characterization, $g_m/I_d$ design method
 \end{IEEEkeywords}
 
 \IEEEpeerreviewmaketitle
@@ -40,7 +40,7 @@ SPICE, LT spice, MOSFET, process characterization, $g_m/I_d$ design method
 The main design parameters for dimensioning MOSFETs are their drain current~$I_d$, 
 which controls transconductance, 
 and the drain-to-source voltage~$V_{ds}$, which controls output conductance~$g_o$.
-However, the operating point of the transistor is controlled mostly by the gate-to-source voltage~$V_{gs}$.
+However, the operating point of the transistor is controlled mostly by the gate-to-source voltage~$V_{gs}$, which varies a lot between different wafers of the same IC design.
 
 I solve this by regulating the gate voltage by a feedback loop
 that adjusts $V_g$ to set the drain voltage $V_d$ to a reference $V_{d,ref}$ 
@@ -84,7 +84,8 @@ by sweeping $I_d$ for fixed $V_d$, as
 \subsection{$g_m/I_d$}
 %
 The specific transconductance $g_m/I_d$ is a useful design parameter 
-for setting the bias point of a transistor. $g_m/I_d$ is maximal in subthreshold operation. 
+for setting the bias point of a transistor~\cite{Silveira1996}. 
+$g_m/I_d$ is maximal in subthreshold operation. 
 It is obtained by sweeping $I_d$ for fixed $V_d$ and calculating
 \begin{equation}\label{eqn:gm_over_Id}
 1/\le(\frac{\partial V_g}{\partial I_d}\,I_d\ri) = \frac{g_m+g_o/\le(1+A\ri)}{I_d}
@@ -109,7 +110,8 @@ the intrinsic voltage gain $g_m/g_o$ can be extracted by sweeping $V_{d,ref}$ fo
 \subsection{Transconductance}
 %
 Even when MOS transistor models are too complicated for hand calculations,
-the specific transconductance $g_m/I_d$ indicates the operating region of the transistor.
+the specific transconductance $g_m/I_d$ indicates
+the operating region of the transistor~\cite{Silveira1996}.
  
 In the weak inversion region, $I_d$ is an exponential function of $V_g$,
 \begin{equation}
@@ -208,13 +210,12 @@ show LT\,Spice\,IV linear $V_d$ dc sweeps at different transistor lengths for tw
 (TSMC~250\,nm and TSMC~180\,nm).
 
 Longer transistors have a higher $g_m/g_o$, PMOS can achieve higher $g_m/g_o$ than NMOS,
-and the process with larger minimum feater size has higher maximal $g_m/g_o$.
+and the process with larger minimum feature size has higher maximal $g_m/g_o$.
 
 \section{Conclusion}
 %%
 I present a single transistor simulation circuit, 
-first published in the LT\,Spice Yahoo group in~2008%
-\footnote{https://groups.yahoo.com/neo/groups/LTspice/files/Badenke\%20und\%20Klee/} 
+first published in the LT\,Spice Yahoo group in~2008~\cite{Yahoo2008},
 with feedback control of the gate voltage~$V_g$
 together with a method to dc sweep both 
 $I_d$ for constant~$V_d$ and $V_d$ for constant $I_d$
@@ -233,10 +234,22 @@ This simulation circuit is suitable
 \begin{itemize}
 \item to get a quick overview of the properties of an unfamiliar IC process
 \item to set the dimension and bias points of transistors 
-\item to design circuits using the $g_m/I_d$ methodology.
+\item to design circuits using the $g_m/I_d$ methodology.~\cite{Silveira1996}
 \end{itemize}
+
+\begin{thebibliography}{1}
+\bibitem{Silveira1996}
+F.~Silveira, D.~Flandre, P.\,G.\,A.~Jespers,
+\textsl{A $g_m/I_D$ based methodology for the design of CMOS analog circuits and its application to the synthesis of a silicon-on-insulator micropower OTA},
+IEEE Journal of Solid-State Circuits vol.~31 no.~9, Sep.~1996, pp.~1314--1319,
+doi:10.1109/4.535416
+\bibitem{Yahoo2008}
+C.~Maier, \textsl{Badenke und Klee}, LTspice file repository, URL:{\sf https://groups.yahoo.com/neo/groups/LTspice/files/Badenke\%20und\%20Klee/\/}, April~2008 
+\end{thebibliography}
 
 \end{document}
 
-% http://web02.gonzaga.edu/faculty/talarico/EE406/documents/gmid.pdf
-% http://www.mos-ak.org/sanfrancisco/papers/08_Jespers_MOS-AK_SF08.pdf
+
+http://web02.gonzaga.edu/faculty/talarico/EE406/documents/gmid.pdf
+
+http://www.mos-ak.org/sanfrancisco/papers/08_Jespers_MOS-AK_SF08.pdf
