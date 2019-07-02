@@ -9,7 +9,7 @@ and a simple circuit that models a spiking neuron.
 ### Earlier works used in this repository
 
 * LTspice IV schematics published in 2008 in the [LTspice Yahoo group](https://groups.yahoo.com/neo/groups/LTspice/files/Badenke%20und%20Klee/) as potential material for an application as IC designer at Linear Technology in [Grass Valley, CA](https://youtu.be/oS8hG8FLUqc)
-* a presentation, given at [BIL2011](https://www.prolific.com/qwiki.cgi?mode=previewSynd&uuid=CD6EKYWY7622Y6S5WVNLFEX3Y2QT&redirected=www.qtask.com) Unconference based on LTspice IV explaining spiking neurons by a hands-on circuit, originally hosted on pony.[noisebridge.net](https://www.noisebridge.net/), now mirrored in [my BionicBlinkenlights bitbucket repository](https://bitbucket.org/cmucsd/bionicblinkenlights)
+* a presentation, given at [BIL2011](https://www.prolific.com/qwiki.cgi?mode=previewSynd&uuid=CD6EKYWY7622Y6S5WVNLFEX3Y2QT&redirected=www.qtask.com) Unconference based on LTspice IV explaining spiking neurons by a hands-on circuit, originally hosted on pony.[noisebridge.net](https://www.noisebridge.net/), now hosted on [https://cmucsd.bitbucket.io/bionicblinkenlights/](https://cmucsd.bitbucket.io/bionicblinkenlights/)
 * a write-up published in 2014 in [my TransistorCharacterization bitbucket repository](https://bitbucket.org/cmucsd/transistorcharacterization)
 
 ### Organization of the repository
